@@ -167,6 +167,7 @@ public class PanelTown extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleParent(welcome);
     }// </editor-fold>//GEN-END:initComponents
 
+    // moves to twicestone panel
     private void actionTwiceStonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionTwiceStonesActionPerformed
         // TODO add your handling code here:
         
@@ -177,6 +178,7 @@ public class PanelTown extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_actionTwiceStonesActionPerformed
 
+    // moves to tower panel
     private void actionTowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionTowerActionPerformed
         // TODO add your handling code here:
         
@@ -188,6 +190,7 @@ public class PanelTown extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_actionTowerActionPerformed
 
+    // moves to rest panel
     private void actionRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionRestActionPerformed
         // TODO add your handling code here:
         
@@ -198,6 +201,7 @@ public class PanelTown extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_actionRestActionPerformed
 
+    // moves to rest panel
     private void actionRetireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionRetireActionPerformed
         // TODO add your handling code here:
         
@@ -208,6 +212,7 @@ public class PanelTown extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_actionRetireActionPerformed
 
+    // exit button
     private void actionExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionExitActionPerformed
         // TODO add your handling code here:
         

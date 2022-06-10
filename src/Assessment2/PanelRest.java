@@ -5,8 +5,6 @@
  */
 package Assessment2;
 
-import java.sql.ResultSet;
-
 /**
  *
  * @author GGPC
@@ -104,6 +102,7 @@ public class PanelRest extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // rests your character
     private void returnTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnTownActionPerformed
         // TODO add your handling code here:
         
@@ -114,6 +113,7 @@ public class PanelRest extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_returnTownActionPerformed
 
+    // exit button 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         

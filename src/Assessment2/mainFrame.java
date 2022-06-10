@@ -5,16 +5,10 @@
  */
 package Assessment2;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 /**
  *
  * @author GGPC
@@ -24,11 +18,9 @@ public class mainFrame extends JFrame implements Observer {
     /**
      * Creates new form mainFrame
      */
-    //private PanelDeath death = new PanelDeath(model);
+ 
     private PanelMainMenu mainMenu = new PanelMainMenu();
-    
-    
-    
+            
     public mainFrame() {             
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -44,8 +36,7 @@ public class mainFrame extends JFrame implements Observer {
     
      @Override
     public void update(Observable o, Object arg) {
-        EntityPlayer player = (EntityPlayer) arg;
-        
+        EntityPlayer player = (EntityPlayer) arg;        
     }
 
     /**

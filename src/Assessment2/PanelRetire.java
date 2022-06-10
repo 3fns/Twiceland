@@ -106,6 +106,7 @@ public class PanelRetire extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // button to retire and delete your charcter off database
     private void actionRetireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionRetireActionPerformed
         // TODO add your handling code here:
         model.retirePlayer();
@@ -113,6 +114,7 @@ public class PanelRetire extends javax.swing.JPanel {
         System.exit(0);       
     }//GEN-LAST:event_actionRetireActionPerformed
 
+    // button to change your mind 
     private void actionReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionReturnActionPerformed
         // TODO add your handling code here:
         

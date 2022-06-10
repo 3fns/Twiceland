@@ -34,6 +34,7 @@ public class Model extends Observable {
         this.db.establishConnection();
     }
 
+    // loads player names from database
     public String[] loadPlayerNames() {
         ResultSet rs = this.db.queryDB("Select * from characterTable WHERE STATUS = true");
 
@@ -54,6 +55,7 @@ public class Model extends Observable {
         return characterList;
     }
 
+    // loads player IDs from database
     public int[] loadPlayerIDs() {
         ResultSet rs = this.db.queryDB("Select * from characterTable WHERE STATUS = true");
 
@@ -74,6 +76,7 @@ public class Model extends Observable {
         return idList;
     }
 
+    // loads selected player
     public void loadedPlayer(String charName, int chosenID) {
         ResultSet rs = this.db.queryDB("Select * from characterTable WHERE ID = " + chosenID);
         charID = chosenID;
@@ -100,6 +103,7 @@ public class Model extends Observable {
 
     }
 
+    // initialise and adds new character to database
     public int newPlayer(String charName) {
         try {
             Statement statement = this.db.getConnection().createStatement();
@@ -117,6 +121,7 @@ public class Model extends Observable {
         return charID;
     }
 
+    // updates player database and reset HP back to player Vitality 
     public void returnTown() {
         this.db.updateDB("UPDATE characterTable SET HIGHESTSTAGE = " + player.getHighestStageNum() + " "
                 + ", LEVEL = " + player.getLevel() + " "
@@ -129,6 +134,7 @@ public class Model extends Observable {
         currentHP = playerStats.get("Vitality");
     }
 
+    // increases attribute with Twicestones and level up player after certain spend 
     public String increaseAttribute(String attribute) {
         if (player.getExp() - 150 >= 0) {
             player.setToLevelUp(player.getToLevelUp() + 1);
@@ -185,6 +191,7 @@ public class Model extends Observable {
         monsterX.setStats(monsterStats);
     }
 
+    // set monster given twicestones
     private void setMonsterExp(EntityEnemy monsterX) {
         switch (monsterX.getMobType()) {
             case "Skeleton":
@@ -205,6 +212,7 @@ public class Model extends Observable {
         }
     }
 
+    // checker for floor clear / all monsters slain in floor
     public boolean isCleared() {
         if (monsterSize == 0) {
             stageNum++;
@@ -216,6 +224,7 @@ public class Model extends Observable {
         return false;
     }
 
+    // character action for attack in tower
     public boolean characterAttack(int selectedMonster) {
         System.out.println(selectedMonster);
         // formula to calc damage
@@ -237,6 +246,7 @@ public class Model extends Observable {
         return false;
     }
 
+    // character action for heal in tower
     public void characterHeal() {
         // formula to calc heal amount
         // heal = int * random number between 0.9 - 1.5
@@ -254,6 +264,7 @@ public class Model extends Observable {
         }
     }
 
+    // character action for defend in tower
     public void characterDefend() {
         // formula to calc defending 
         // def = (str + vit) * 0.125
@@ -322,24 +333,17 @@ public class Model extends Observable {
         }
     }
 
+    // resets player HP equal to player Vitality
     public void resetHP() {
         currentHP = playerStats.get("Vitality");
     }
 
+    // resets player runback to tower to 1
     public void resetFloor() {
         stageNum = 1;
     }
 
-    /*
-    private static void setPlayerMaxHealth() {
-        playerStats.replace("Vitality", player.getMaxHealth());
-        this.playerStats.replace("Vitality", 0);
-
-        player.setStats(playerStats);
-        player.setMaxHealth(tseq1.savedHealth(player)); 
-        // GET MAX VITALITY (HEALTH) FROM DB 
-    }
-     */
+    // removes player from database through retiring 
     public void retirePlayer() {
         this.db.updateDB("UPDATE characterTable SET STATUS = false"
                 + " WHERE ID = " + charID);

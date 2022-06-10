@@ -134,12 +134,14 @@ public class PanelMainMenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // exit button 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
 
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
+    // button to load player
     private void loadGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadGameButtonActionPerformed
         // TODO add your handling code here:
 
@@ -150,6 +152,7 @@ public class PanelMainMenu extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_loadGameButtonActionPerformed
 
+    // button to create new player
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         // TODO add your handling code here:
 

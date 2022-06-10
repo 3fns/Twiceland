@@ -23,15 +23,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="banner" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="deathButton" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="diedLabel" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="deathButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="diedLabel" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

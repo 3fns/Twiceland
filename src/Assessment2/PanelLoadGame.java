@@ -28,8 +28,7 @@ public class PanelLoadGame extends javax.swing.JPanel {
         
         continueButton.setVisible(false);
         
-        charList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
-        
+        charList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);            
     }
 
     /**
@@ -115,6 +114,7 @@ public class PanelLoadGame extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // button to go to town after loading
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         // TODO add your handling code here:
         
@@ -136,6 +136,7 @@ public class PanelLoadGame extends javax.swing.JPanel {
          
     }//GEN-LAST:event_continueButtonActionPerformed
 
+    // checker if list has a selected value
     private void charListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_charListValueChanged
         // TODO add your handling code here:
          

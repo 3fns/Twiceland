@@ -112,6 +112,7 @@ public class PanelFloor extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // button to continue up tower
     private void continueFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueFloorActionPerformed
         // TODO add your handling code here:
         
@@ -122,6 +123,7 @@ public class PanelFloor extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_continueFloorActionPerformed
 
+    // button to go back to town after floor clear
     private void returnTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnTownActionPerformed
         // TODO add your handling code here:
         

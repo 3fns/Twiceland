@@ -5,8 +5,6 @@
  */
 package Assessment2;
 
-import java.util.HashMap;
-
 /**
  *
  * @author GGPC
@@ -237,6 +235,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // button to go back to town
     private void returnTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnTownActionPerformed
         // TODO add your handling code here:
         model.returnTown();
@@ -248,6 +247,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         this.getParent().repaint();        
     }//GEN-LAST:event_returnTownActionPerformed
 
+    // button to spend twicestones and increase Strength attribute
     private void strButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strButtonActionPerformed
         // TODO add your handling code here:                                
         charStr.setText(model.increaseAttribute("Strength"));
@@ -256,6 +256,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         playerLevel.setText("Level: " + model.player.getLevel());
     }//GEN-LAST:event_strButtonActionPerformed
 
+    // button to spend twicestones and increase Vitality attribute
     private void vitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vitButtonActionPerformed
         // TODO add your handling code here:
         charVit.setText(model.increaseAttribute("Vitality"));
@@ -264,6 +265,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         playerLevel.setText("Level: " + model.player.getLevel());
     }//GEN-LAST:event_vitButtonActionPerformed
 
+    // button to spend twicestones and increase Intelligence attribute
     private void intButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intButtonActionPerformed
         // TODO add your handling code here:
         charInt.setText(model.increaseAttribute("Intelligence"));

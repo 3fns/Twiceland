@@ -8,8 +8,6 @@ package Assessment2;
  *
  */
 
-
-
 public class EntityEnemy extends EntityCharacter
 {
     private String mobType = "";

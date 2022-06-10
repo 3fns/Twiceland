@@ -97,11 +97,12 @@ public class PanelNewGame extends javax.swing.JPanel {
                 .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+   
     private void enterNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enterNameFieldActionPerformed
 
+    // button to go town after creating character
     private void contButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contButtonActionPerformed
         // TODO add your handling code here:
              

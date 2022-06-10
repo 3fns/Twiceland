@@ -37,6 +37,7 @@ public final class DBManager {
 
                 String tableName = "characterTable";
             
+                // Check if table exists then create table for characters
                 if(!checkTableExisting(tableName)) {
                     statement.executeUpdate("CREATE TABLE " +tableName+" (ID INT GENERATED ALWAYS AS IDENTITY, STATUS BOOLEAN DEFAULT true, NAME VARCHAR(255), LEVEL INT DEFAULT 1,"
                             + "TWICESTONES INT DEFAULT 1500, STRENGTH INT DEFAULT 15, VITALITY INT DEFAULT 100, INTELLIGENCE INT DEFAULT 15,"
@@ -45,6 +46,7 @@ public final class DBManager {
                 
                 tableName = "monsterTable";
                 
+                // Check if table exists then create table for monsters
                 if(!checkTableExisting(tableName)) {
                     statement.executeUpdate("CREATE TABLE " +tableName+" (MONSTERTYPE VARCHAR(255), MONSTEREXP INT, "
                             + "STRENGTH INT, VITALITY INT, INTELLIGENCE INT)");                    

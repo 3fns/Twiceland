@@ -82,6 +82,7 @@ public class PanelDeath extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // button to go back to town after death
     private void deathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deathButtonActionPerformed
         // TODO add your handling code here:
         

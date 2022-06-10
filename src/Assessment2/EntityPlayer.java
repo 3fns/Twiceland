@@ -8,8 +8,6 @@ package Assessment2;
  *
  */
 
-
-
 public class EntityPlayer extends EntityCharacter 
 {
     private int uniqueID;

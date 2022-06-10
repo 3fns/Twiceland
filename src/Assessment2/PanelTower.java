@@ -39,6 +39,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect2.setVisible(false);
         monsterSelect3.setVisible(false);
 
+        // UI depending on how many monsters appear in tower
         for (int i = 0; i < monsterList.size(); i++) {
             if (i == 0) {
                 monsterLabel1.setText(monsterList.get(i).getMobType());
@@ -346,6 +347,7 @@ public class PanelTower extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // button for player action to defend
     private void actionDefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionDefActionPerformed
         model.characterDefend();
         battleLog.append(model.player.getCharName() + " defended " + model.def + "\n");
@@ -363,6 +365,7 @@ public class PanelTower extends javax.swing.JPanel {
 
     }//GEN-LAST:event_actionDefActionPerformed
 
+    // button for player action to heal
     private void actionHealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionHealActionPerformed
         model.characterHeal();
         battleLog.append(model.player.getCharName() + " healed for " + model.heal + " HP\n");
@@ -379,6 +382,7 @@ public class PanelTower extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_actionHealActionPerformed
 
+    // button for player action to attack
     private void actionAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionAttackActionPerformed
 
         for (int i = 0; i < monsterList.size(); i++) {
@@ -392,10 +396,12 @@ public class PanelTower extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_actionAttackActionPerformed
 
+    // button for player to select monster 1 after clicking attack
     private void monsterSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect1ActionPerformed
         // TODO add your handling code here:
         battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(0).getCharName() + " for " + model.playerAttack + " damage\n");
         
+        // when monster has been slain
         if (model.characterAttack(0)) {
             monsterHP1.setText("Health: 0");
             battleLog.append(model.monsterList.get(0).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(0).getExp() + " Twicestones!\n");
@@ -410,6 +416,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect2.setVisible(false);
         monsterSelect3.setVisible(false);       
 
+        // action after clearing the floor and defeating all monsters or action if floor is not cleared
         if (model.isCleared()) {
             this.setVisible(false);
 
@@ -430,10 +437,12 @@ public class PanelTower extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_monsterSelect1ActionPerformed
 
+    // button for player to select monster 2 after clicking attack
     private void monsterSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect2ActionPerformed
         // TODO add your handling code here:                        
         battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(1).getCharName() + " for " + model.playerAttack + " damage\n");
         
+        // when monster has been slain
         if (model.characterAttack(1)) {
             monsterHP2.setText("Health: 0");
             battleLog.append(model.monsterList.get(1).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(1).getExp() + " Twicestones!\n");
@@ -448,6 +457,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect2.setVisible(false);
         monsterSelect3.setVisible(false);
 
+        // action after clearing the floor and defeating all monsters or action if floor is not cleared
         if (model.isCleared()) {
             this.setVisible(false);
 
@@ -468,10 +478,12 @@ public class PanelTower extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_monsterSelect2ActionPerformed
 
+    // button for player to select monster 3 after clicking attack
     private void monsterSelect3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect3ActionPerformed
         // TODO add your handling code here:
         battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(2).getCharName() + " for " + model.playerAttack + " damage\n");
         
+        // when monster has been slain
         if (model.characterAttack(2)) {
             monsterHP3.setText("Health: 0");
             battleLog.append(model.monsterList.get(2).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(2).getExp() + " Twicestones!\n");
@@ -487,6 +499,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect2.setVisible(false);
         monsterSelect3.setVisible(false);       
 
+        // action after clearing the floor and defeating all monsters or action if floor is not cleared
         if (model.isCleared()) {
             this.setVisible(false);
 
