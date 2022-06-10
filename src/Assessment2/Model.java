@@ -226,7 +226,6 @@ public class Model extends Observable {
 
     // character action for attack in tower
     public boolean characterAttack(int selectedMonster) {
-        System.out.println(selectedMonster);
         // formula to calc damage
         // dmg = (str * random number from 0 to (str/2)) + (str * 1.25) 
         int randNum = (int) (Math.random() * (player.getStats().get("Strength") / 2));
@@ -310,7 +309,6 @@ public class Model extends Observable {
 
         // player twiceStones reset to 0 when player's HP goes to 0 
         if (rem <= 0) {
-            System.out.println(monsterList.get(selectedMonster).getCharName() + " has been slain");
             twiceStones = monsterList.get(selectedMonster).getExp();
             monsterSize--;
         } else {

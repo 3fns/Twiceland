@@ -109,7 +109,6 @@ public class PanelNewGame extends javax.swing.JPanel {
         String charName = enterNameField.getText();
         
         model.newPlayer(charName);
-        System.out.println(model.player.getCharName());
                 
         this.setVisible(false);
         

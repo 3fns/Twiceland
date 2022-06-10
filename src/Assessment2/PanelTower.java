@@ -399,16 +399,20 @@ public class PanelTower extends javax.swing.JPanel {
     // button for player to select monster 1 after clicking attack
     private void monsterSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect1ActionPerformed
         // TODO add your handling code here:
-        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(0).getCharName() + " for " + model.playerAttack + " damage\n");
+        
         
         // when monster has been slain
         if (model.characterAttack(0)) {
             monsterHP1.setText("Health: 0");
+            battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(0).getCharName() + " for " + model.playerAttack + " damage\n");
             battleLog.append(model.monsterList.get(0).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(0).getExp() + " Twicestones!\n");
             monsterSelect1.setEnabled(false);
         } else {
             monsterHP1.setText("Health: " + monsterList.get(0).getStats().get("Vitality"));
-        }
+            battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(0).getCharName() + " for " + model.playerAttack + " damage\n");
+        }                
+        
+        
 
         charTwiceStones.setText("Twice Stones: " + model.player.getExp());
 
@@ -440,15 +444,17 @@ public class PanelTower extends javax.swing.JPanel {
     // button for player to select monster 2 after clicking attack
     private void monsterSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect2ActionPerformed
         // TODO add your handling code here:                        
-        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(1).getCharName() + " for " + model.playerAttack + " damage\n");
+        
         
         // when monster has been slain
         if (model.characterAttack(1)) {
             monsterHP2.setText("Health: 0");
+            battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(1).getCharName() + " for " + model.playerAttack + " damage\n");
             battleLog.append(model.monsterList.get(1).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(1).getExp() + " Twicestones!\n");
             monsterSelect2.setEnabled(false);
         } else {
             monsterHP2.setText("Health: " + monsterList.get(1).getStats().get("Vitality"));
+            battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(1).getCharName() + " for " + model.playerAttack + " damage\n");
         }
 
         charTwiceStones.setText("Twice Stones: " + model.player.getExp());
@@ -481,16 +487,17 @@ public class PanelTower extends javax.swing.JPanel {
     // button for player to select monster 3 after clicking attack
     private void monsterSelect3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect3ActionPerformed
         // TODO add your handling code here:
-        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(2).getCharName() + " for " + model.playerAttack + " damage\n");
+        
         
         // when monster has been slain
         if (model.characterAttack(2)) {
             monsterHP3.setText("Health: 0");
+            battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(2).getCharName() + " for " + model.playerAttack + " damage\n");
             battleLog.append(model.monsterList.get(2).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(2).getExp() + " Twicestones!\n");
             monsterSelect3.setEnabled(false);
         } else {
             monsterHP3.setText("Health: " + monsterList.get(2).getStats().get("Vitality"));
-
+            battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(2).getCharName() + " for " + model.playerAttack + " damage\n");
         }
 
         charTwiceStones.setText("Twice Stones: " + model.player.getExp());
