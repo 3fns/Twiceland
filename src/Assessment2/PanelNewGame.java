@@ -31,8 +31,8 @@ public class PanelNewGame extends javax.swing.JPanel {
 
         enterNameField = new javax.swing.JTextField();
         contButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        enterCharNameLabel = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(252, 200, 155));
 
@@ -47,21 +47,22 @@ public class PanelNewGame extends javax.swing.JPanel {
         contButton.setForeground(new java.awt.Color(255, 255, 255));
         contButton.setText("CONTINUE");
         contButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        contButton.setFocusable(false);
         contButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText(" Enter Character Name:");
-        jLabel1.setAlignmentX(0.5F);
-        jLabel1.setFocusCycleRoot(true);
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        enterCharNameLabel.setBackground(new java.awt.Color(255, 255, 255));
+        enterCharNameLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        enterCharNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        enterCharNameLabel.setText(" Enter Character Name:");
+        enterCharNameLabel.setAlignmentX(0.5F);
+        enterCharNameLabel.setFocusCycleRoot(true);
+        enterCharNameLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,20 +72,20 @@ public class PanelNewGame extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(contButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(enterCharNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(enterNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(banner)
                 .addGap(65, 65, 65)
-                .addComponent(jLabel1)
+                .addComponent(enterCharNameLabel)
                 .addGap(18, 18, 18)
                 .addComponent(enterNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
@@ -114,9 +115,9 @@ public class PanelNewGame extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel banner;
     private javax.swing.JButton contButton;
-    private javax.swing.JTextField enterNameField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel enterCharNameLabel;
+    public javax.swing.JTextField enterNameField;
     // End of variables declaration//GEN-END:variables
 }

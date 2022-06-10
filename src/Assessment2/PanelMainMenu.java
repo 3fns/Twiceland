@@ -29,21 +29,21 @@ public class PanelMainMenu extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Twiceland = new javax.swing.JLabel();
         newGameButton = new javax.swing.JButton();
         loadGameButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
+        mainImg = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(252, 200, 155));
 
-        jLabel1.setBackground(new java.awt.Color(255, 95, 162));
-        jLabel1.setFont(new java.awt.Font("Gabriola", 3, 72)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("TWICELAND");
-        jLabel1.setAlignmentX(0.5F);
+        Twiceland.setBackground(new java.awt.Color(255, 95, 162));
+        Twiceland.setFont(new java.awt.Font("Gabriola", 3, 72)); // NOI18N
+        Twiceland.setForeground(new java.awt.Color(255, 255, 255));
+        Twiceland.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Twiceland.setText("TWICELAND");
+        Twiceland.setAlignmentX(0.5F);
 
         newGameButton.setBackground(new java.awt.Color(255, 95, 162));
         newGameButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -51,6 +51,7 @@ public class PanelMainMenu extends javax.swing.JPanel {
         newGameButton.setText("New Game");
         newGameButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         newGameButton.setFocusPainted(false);
+        newGameButton.setFocusable(false);
         newGameButton.setMinimumSize(new java.awt.Dimension(60, 19));
         newGameButton.setPreferredSize(new java.awt.Dimension(100, 25));
         newGameButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +65,7 @@ public class PanelMainMenu extends javax.swing.JPanel {
         loadGameButton.setForeground(new java.awt.Color(255, 255, 255));
         loadGameButton.setText("Load Game");
         loadGameButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        loadGameButton.setFocusable(false);
         loadGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadGameButtonActionPerformed(evt);
@@ -75,41 +77,42 @@ public class PanelMainMenu extends javax.swing.JPanel {
         exitButton.setForeground(new java.awt.Color(255, 255, 255));
         exitButton.setText("Exit Game");
         exitButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        exitButton.setFocusable(false);
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/mainMenu.jpg"))); // NOI18N
+        mainImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/mainMenu.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(banner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(newGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Twiceland, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(loadGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(mainImg)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(banner)
                 .addGap(44, 44, 44)
-                .addComponent(jLabel3)
+                .addComponent(mainImg)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Twiceland, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(newGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -163,12 +166,12 @@ public class PanelMainMenu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Twiceland;
+    private javax.swing.JLabel banner;
     public javax.swing.JButton exitButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton loadGameButton;
+    private javax.swing.JLabel mainImg;
     public javax.swing.JButton newGameButton;
     // End of variables declaration//GEN-END:variables
 }

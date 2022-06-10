@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Fri Jun 10 03:49:51 NZST 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-4928-5d8d-00000df6c5e8 
-on database directory C:\Users\GGPC\Desktop\UNI\COMP603 - PDS\Assessment 2\Assessment2\database\TwicelandDB with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/GGPC/Desktop/UNI/COMP603%20-%20PDS/Assessment%202/Assessment2/lib/derby.jar
+Fri Jun 10 21:04:32 NZST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-4cdb-a6b8-00000e232a68 
+on database directory C:\Users\GGPC\Documents\GitHub\Twiceland\database\TwicelandDB with class loader sun.misc.Launcher$AppClassLoader@14ae5a5 
+Loaded from file:/C:/Users/GGPC/Documents/GitHub/Twiceland/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_321-b07
-user.dir=C:\Users\GGPC\Desktop\UNI\COMP603 - PDS\Assessment 2\Assessment2
+user.dir=C:\Users\GGPC\Documents\GitHub\Twiceland
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0

@@ -32,45 +32,83 @@ public class PanelFloor extends javax.swing.JPanel {
 
         continueFloor = new javax.swing.JButton();
         returnTown = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        floorClearedLabel = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
+        floorImg = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(252, 200, 155));
+        setForeground(new java.awt.Color(252, 200, 155));
+
+        continueFloor.setBackground(new java.awt.Color(255, 95, 162));
+        continueFloor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        continueFloor.setForeground(new java.awt.Color(255, 255, 255));
         continueFloor.setText("Continue");
+        continueFloor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        continueFloor.setFocusable(false);
         continueFloor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continueFloorActionPerformed(evt);
             }
         });
 
+        returnTown.setBackground(new java.awt.Color(255, 95, 162));
+        returnTown.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        returnTown.setForeground(new java.awt.Color(255, 255, 255));
         returnTown.setText("Return to Town");
+        returnTown.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        returnTown.setFocusable(false);
+        returnTown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnTownActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
-        jLabel1.setText("FLOOR CLEARED");
+        floorClearedLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        floorClearedLabel.setForeground(new java.awt.Color(255, 255, 255));
+        floorClearedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        floorClearedLabel.setText("FLOOR CLEARED");
+        floorClearedLabel.setAlignmentX(0.5F);
+        floorClearedLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 95, 162), 2));
+        floorClearedLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        floorClearedLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        floorClearedLabel.setIconTextGap(0);
+
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+
+        floorImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/floor.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(continueFloor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(returnTown)
-                .addGap(50, 50, 50))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(29, 29, 29))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(floorImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(floorClearedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(continueFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(returnTown, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(banner)
+                .addGap(23, 23, 23)
+                .addComponent(floorClearedLabel)
+                .addGap(18, 18, 18)
+                .addComponent(floorImg, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(continueFloor)
-                    .addComponent(returnTown))
-                .addGap(97, 97, 97))
+                    .addComponent(continueFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(returnTown, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -84,10 +122,22 @@ public class PanelFloor extends javax.swing.JPanel {
         this.getParent().repaint();
     }//GEN-LAST:event_continueFloorActionPerformed
 
+    private void returnTownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnTownActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        
+        this.getParent().add(new PanelTown(model));
+        this.getParent().revalidate();
+        this.getParent().repaint();
+    }//GEN-LAST:event_returnTownActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel banner;
     private javax.swing.JButton continueFloor;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel floorClearedLabel;
+    private javax.swing.JLabel floorImg;
     private javax.swing.JButton returnTown;
     // End of variables declaration//GEN-END:variables
 }

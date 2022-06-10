@@ -23,7 +23,7 @@ public class Model extends Observable {
     public List<EntityEnemy> monsterList;
     private int def = 0;
     private int charID = 0;
-    private int monsterSize = 0;
+    public int monsterSize = 0;
     public int stageNum = 1;
     public int currentHP;
 
@@ -74,7 +74,7 @@ public class Model extends Observable {
 
     public void loadedPlayer(String charName, int chosenID) {
         ResultSet rs = this.db.queryDB("Select * from characterTable WHERE ID = " + chosenID);
-        charID = chosenID;                
+        charID = chosenID;
 
         try {
             while (rs.next()) {
@@ -95,12 +95,11 @@ public class Model extends Observable {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
-    
-    public int newPlayer(String charName)
-    {                     
-        try{
+
+    public int newPlayer(String charName) {
+        try {
             Statement statement = this.db.getConnection().createStatement();
 
             statement.execute("INSERT INTO characterTable (NAME) VALUES ('" + charName + "')", Statement.RETURN_GENERATED_KEYS);
@@ -108,39 +107,34 @@ public class Model extends Observable {
             player = new EntityPlayer(charName, 1, 1500);
             playerStats = player.getStats();
             currentHP = playerStats.get("Vitality");
-            
-        }catch (SQLException ex)                 
-        {
+
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
         return charID;
     }
-    
-    public void returnTown()
-    {
-        this.db.updateDB("UPDATE characterTable SET HIGHESTSTAGE = "+ player.getHighestStageNum() +" "
-                + ", LEVEL = "+ player.getLevel() +" "
-                + ", ATTRIBUTESINCREASED = "+ player.getToLevelUp() +" "
-                + ", TWICESTONES = "+ player.getExp() +" "
-                + ", STRENGTH = "+ playerStats.get("Strength") +" "
-                + ", VITALITY = "+ playerStats.get("Vitality") +" "
-                + ", INTELLIGENCE = "+ playerStats.get("Intelligence")
+
+    public void returnTown() {
+        this.db.updateDB("UPDATE characterTable SET HIGHESTSTAGE = " + player.getHighestStageNum() + " "
+                + ", LEVEL = " + player.getLevel() + " "
+                + ", ATTRIBUTESINCREASED = " + player.getToLevelUp() + " "
+                + ", TWICESTONES = " + player.getExp() + " "
+                + ", STRENGTH = " + playerStats.get("Strength") + " "
+                + ", VITALITY = " + playerStats.get("Vitality") + " "
+                + ", INTELLIGENCE = " + playerStats.get("Intelligence")
                 + " WHERE ID = " + charID);
         currentHP = playerStats.get("Vitality");
     }
-    
-    public String increaseAttribute(String attribute)
-    {
-        if(player.getExp() - 150 >= 0)
-        {
-            player.setToLevelUp(player.getToLevelUp() + 1); 
 
-                playerStats.replace(attribute, playerStats.get(attribute) + 1);
-                player.setExp(player.getExp() - 150);               
-                
-            if(player.getToLevelUp() % 5 == 0)
-            {
+    public String increaseAttribute(String attribute) {
+        if (player.getExp() - 150 >= 0) {
+            player.setToLevelUp(player.getToLevelUp() + 1);
+
+            playerStats.replace(attribute, playerStats.get(attribute) + 1);
+            player.setExp(player.getExp() - 150);
+
+            if (player.getToLevelUp() % 5 == 0) {
                 player.setLevel(player.getLevel() + 1);
             }
         }
@@ -175,7 +169,7 @@ public class Model extends Observable {
             monsterList.add(i, createMonster(monsterLevel));
         }
         monsterSize = monsterList.size();
-        
+
         return monsterList;
     }
 
@@ -209,26 +203,23 @@ public class Model extends Observable {
         }
     }
 
-    public boolean isCleared()
-    {
-        if(monsterSize == 0)
-        {
+    public boolean isCleared() {
+        if (monsterSize == 0) {
             stageNum++;
-            if(stageNum > player.getHighestStageNum())
-            {
+            if (stageNum > player.getHighestStageNum()) {
                 player.setHighestStageNum(stageNum);
             }
             return true;
         }
         return false;
     }
-    
+
     public boolean characterAttack(int selectedMonster) {
         System.out.println(selectedMonster);
         // formula to calc damage
         // dmg = (str * random number from 0 to (str/2)) + (str * 1.25) 
         int randNum = (int) (Math.random() * (player.getStats().get("Strength") / 2));
-        int dmg = (int) Math.floor(randNum + (player.getStats().get("Strength") * 1.25));       
+        int dmg = (int) Math.floor(randNum + (player.getStats().get("Strength") * 1.25));
 
         HashMap<String, Integer> stats = monsterList.get(selectedMonster).getStats();
         int rem = stats.get("Vitality") - dmg;
@@ -239,8 +230,8 @@ public class Model extends Observable {
         if (twiceStones > 0) {
             player.setExp(twiceStones + player.getExp());
             return true;
-        }        
-        
+        }
+
         return false;
     }
 
@@ -264,33 +255,35 @@ public class Model extends Observable {
     public void characterDefend() {
         // formula to calc defending 
         // def = (str + vit) * 0.125
-        def = (int) Math.floor((player.getStats().get("Strength") + player.getStats().get("Vitality")) * 0.125);      
+        def = (int) Math.floor((player.getStats().get("Strength") + player.getStats().get("Vitality")) * 0.125);
     }
 
     // all monsters attack the player after character action
     public boolean monsterAction() {
         for (int i = 0; i < monsterList.size(); i++) {
             // calculate for monster damage
-            int randNum = (int) (Math.random() * (monsterList.get(i).getStats().get("Strength") / 2));
-            int dmg = (int) Math.floor(randNum + (monsterList.get(i).getStats().get("Strength") * 1.5));
+            if (monsterList.get(i).getStats().get("Vitality") > 0) {
+                int randNum = (int) (Math.random() * (monsterList.get(i).getStats().get("Strength") / 2));
+                int dmg = (int) Math.floor(randNum + (monsterList.get(i).getStats().get("Strength") * 1.5));
 
-            if (dmg <= 0) {
-                dmg = 0;
-            }
-            
-            currentHP = (currentHP + def) - dmg;
-            int finalDamage = dmg - def;
+                if (dmg <= 0) {
+                    dmg = 0;
+                }
 
-            // check if damage is defended
-            if (finalDamage <= 0) {
-                finalDamage = 0;
-            }
-            checkVitality(currentHP, playerStats);
-            def = 0;
+                currentHP = (currentHP + def) - dmg;
+                int finalDamage = dmg - def;
 
-            // check if character is dead           
-            if (currentHP <= 0) {
-                return true;
+                // check if damage is defended
+                if (finalDamage <= 0) {
+                    finalDamage = 0;
+                }
+                checkVitality(currentHP, playerStats);
+                def = 0;
+
+                // check if character is dead           
+                if (currentHP <= 0) {
+                    return true;
+                }
             }
         }
 
@@ -316,17 +309,26 @@ public class Model extends Observable {
     }
 
     // check damage from monster to player
-    private boolean checkVitality(int rem, HashMap<String, Integer> stats) {
+    public boolean checkVitality(int rem, HashMap<String, Integer> stats) {
         if (rem <= 0) {
             player.setExp(0);
             return false;
         } else {
-            stats.replace("Vitality", rem);
-            player.setStats(stats);
+            //stats.replace("Vitality", rem);
+            //player.setStats(stats);
             return true;
         }
     }
-/*
+
+    public void resetHP() {
+        currentHP = playerStats.get("Vitality");
+    }
+
+    public void resetFloor() {
+        stageNum = 1;
+    }
+
+    /*
     private static void setPlayerMaxHealth() {
         playerStats.replace("Vitality", player.getMaxHealth());
         this.playerStats.replace("Vitality", 0);
@@ -335,10 +337,9 @@ public class Model extends Observable {
         player.setMaxHealth(tseq1.savedHealth(player)); 
         // GET MAX VITALITY (HEALTH) FROM DB 
     }
- */   
-    public void retirePlayer()
-    {
-     this.db.updateDB("UPDATE characterTable SET STATUS = false"
+     */
+    public void retirePlayer() {
+        this.db.updateDB("UPDATE characterTable SET STATUS = false"
                 + " WHERE ID = " + charID);
     }
 }

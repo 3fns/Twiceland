@@ -30,47 +30,55 @@ public class PanelDeath extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        diedLabel = new javax.swing.JLabel();
         deathButton = new javax.swing.JButton();
+        banner = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setText("YOU DIED");
+        setBackground(new java.awt.Color(252, 200, 155));
 
+        diedLabel.setFont(new java.awt.Font("Tahoma", 1, 72)); // NOI18N
+        diedLabel.setForeground(new java.awt.Color(153, 0, 0));
+        diedLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        diedLabel.setText("YOU DIED");
+
+        deathButton.setBackground(new java.awt.Color(255, 95, 162));
+        deathButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        deathButton.setForeground(new java.awt.Color(255, 255, 255));
         deathButton.setText("Return to town");
+        deathButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        deathButton.setFocusable(false);
         deathButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deathButtonActionPerformed(evt);
             }
         });
 
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jLabel1))
+                        .addContainerGap()
+                        .addComponent(deathButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(deathButton)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(diedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1)
-                .addGap(100, 100, 100)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deathButton)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(banner)
+                .addGap(117, 117, 117)
+                .addComponent(diedLabel)
+                .addGap(120, 120, 120)
+                .addComponent(deathButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -86,8 +94,8 @@ public class PanelDeath extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel banner;
     private javax.swing.JButton deathButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel diedLabel;
     // End of variables declaration//GEN-END:variables
 }

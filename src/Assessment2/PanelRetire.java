@@ -30,26 +30,27 @@ public class PanelRetire extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        retireLabel = new javax.swing.JLabel();
         actionRetire = new javax.swing.JButton();
         actionReturn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
+        retireImg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(252, 200, 155));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Are you sure you want to retire?");
-        jLabel1.setAlignmentX(0.5F);
-        jLabel1.setFocusable(false);
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        retireLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        retireLabel.setForeground(new java.awt.Color(255, 255, 255));
+        retireLabel.setText("Are you sure you want to retire?");
+        retireLabel.setAlignmentX(0.5F);
+        retireLabel.setFocusable(false);
+        retireLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         actionRetire.setBackground(new java.awt.Color(255, 95, 162));
         actionRetire.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         actionRetire.setForeground(new java.awt.Color(255, 255, 255));
         actionRetire.setText("Retire");
         actionRetire.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        actionRetire.setFocusable(false);
         actionRetire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionRetireActionPerformed(evt);
@@ -61,21 +62,22 @@ public class PanelRetire extends javax.swing.JPanel {
         actionReturn.setForeground(new java.awt.Color(255, 255, 255));
         actionReturn.setText("Return");
         actionReturn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        actionReturn.setFocusable(false);
         actionReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionReturnActionPerformed(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/retire.PNG"))); // NOI18N
+        retireImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/retire.PNG"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,23 +85,23 @@ public class PanelRetire extends javax.swing.JPanel {
                     .addComponent(actionRetire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jLabel1)
+                        .addComponent(retireLabel)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(retireImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(banner)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(retireLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                 .addGap(39, 39, 39)
                 .addComponent(actionRetire, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(actionReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jLabel3)
+                .addComponent(retireImg)
                 .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -125,8 +127,8 @@ public class PanelRetire extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actionRetire;
     private javax.swing.JButton actionReturn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel banner;
+    private javax.swing.JLabel retireImg;
+    private javax.swing.JLabel retireLabel;
     // End of variables declaration//GEN-END:variables
 }

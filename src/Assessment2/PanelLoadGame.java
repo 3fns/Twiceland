@@ -38,23 +38,24 @@ public class PanelLoadGame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        chooseCharLabel = new javax.swing.JLabel();
         continueButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>(charNames);
-        jLabel3 = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 200, 155));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Choose Character:");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        chooseCharLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        chooseCharLabel.setForeground(new java.awt.Color(255, 255, 255));
+        chooseCharLabel.setText("Choose Character:");
+        chooseCharLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         continueButton.setBackground(new java.awt.Color(255, 95, 162));
         continueButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         continueButton.setForeground(new java.awt.Color(255, 255, 255));
         continueButton.setText("Continue Adventure in Twiceland");
+        continueButton.setFocusable(false);
         continueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continueButtonActionPerformed(evt);
@@ -67,11 +68,12 @@ public class PanelLoadGame extends javax.swing.JPanel {
         jList1.setForeground(new java.awt.Color(255, 255, 255));
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jList1.setFocusable(false);
         jList1.setSelectionBackground(new java.awt.Color(255, 95, 165));
         jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jList1);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,17 +90,17 @@ public class PanelLoadGame extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(continueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(chooseCharLabel)
                                 .addGap(17, 17, 17)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addComponent(jLabel3)
+            .addComponent(banner)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(banner)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(chooseCharLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -124,9 +126,9 @@ public class PanelLoadGame extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel banner;
+    private javax.swing.JLabel chooseCharLabel;
     private javax.swing.JButton continueButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -23,8 +23,8 @@ public class PanelTower extends javax.swing.JPanel {
     public PanelTower(Model currModel) {
         model = currModel;
         monsterList = model.createMonsters();
-        System.out.println(model.stageNum);
-
+        System.out.println(model.stageNum);        
+        
         initComponents();
 
         monsterLabel1.setVisible(false);
@@ -85,8 +85,8 @@ public class PanelTower extends javax.swing.JPanel {
         actionHeal = new javax.swing.JButton();
         monsterLabel2 = new javax.swing.JLabel();
         monsterLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        battleLogHeaderLabel = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
         monsterLevel1 = new javax.swing.JLabel();
         monsterHP1 = new javax.swing.JLabel();
         monsterLevel2 = new javax.swing.JLabel();
@@ -96,7 +96,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect1 = new javax.swing.JButton();
         monsterSelect2 = new javax.swing.JButton();
         monsterSelect3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        battleLog = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -104,15 +104,15 @@ public class PanelTower extends javax.swing.JPanel {
 
         charName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         charName.setForeground(new java.awt.Color(255, 255, 255));
-        charName.setText("Character Name: ");
+        charName.setText("Character Name: " + model.player.getCharName());
 
         charHP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         charHP.setForeground(new java.awt.Color(255, 255, 255));
-        charHP.setText("HP: ");
+        charHP.setText("HP: " + model.playerStats.get("Vitality"));
 
         charTwiceStones.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         charTwiceStones.setForeground(new java.awt.Color(255, 255, 255));
-        charTwiceStones.setText("Twice Stones: ");
+        charTwiceStones.setText("Twice Stones: " + model.player.getExp());
 
         monsterLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         monsterLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,7 +123,7 @@ public class PanelTower extends javax.swing.JPanel {
         actionAttack.setForeground(new java.awt.Color(255, 255, 255));
         actionAttack.setText("Attack");
         actionAttack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        actionAttack.setPreferredSize(new java.awt.Dimension(45, 19));
+        actionAttack.setFocusable(false);
         actionAttack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionAttackActionPerformed(evt);
@@ -135,6 +135,7 @@ public class PanelTower extends javax.swing.JPanel {
         actionDef.setForeground(new java.awt.Color(255, 255, 255));
         actionDef.setText("Defend");
         actionDef.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        actionDef.setFocusable(false);
         actionDef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionDefActionPerformed(evt);
@@ -146,6 +147,7 @@ public class PanelTower extends javax.swing.JPanel {
         actionHeal.setForeground(new java.awt.Color(255, 255, 255));
         actionHeal.setText("Heal");
         actionHeal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        actionHeal.setFocusable(false);
         actionHeal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionHealActionPerformed(evt);
@@ -160,11 +162,11 @@ public class PanelTower extends javax.swing.JPanel {
         monsterLabel3.setForeground(new java.awt.Color(255, 255, 255));
         monsterLabel3.setText("Monster");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Battle Log:");
+        battleLogHeaderLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        battleLogHeaderLabel.setForeground(new java.awt.Color(255, 255, 255));
+        battleLogHeaderLabel.setText("Battle Log:");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
         monsterLevel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         monsterLevel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,6 +197,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect1.setForeground(new java.awt.Color(255, 255, 255));
         monsterSelect1.setText("Select");
         monsterSelect1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        monsterSelect1.setFocusable(false);
         monsterSelect1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monsterSelect1ActionPerformed(evt);
@@ -206,6 +209,7 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect2.setForeground(new java.awt.Color(255, 255, 255));
         monsterSelect2.setText("Select");
         monsterSelect2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        monsterSelect2.setFocusable(false);
         monsterSelect2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monsterSelect2ActionPerformed(evt);
@@ -217,70 +221,73 @@ public class PanelTower extends javax.swing.JPanel {
         monsterSelect3.setForeground(new java.awt.Color(255, 255, 255));
         monsterSelect3.setText("Select");
         monsterSelect3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        monsterSelect3.setFocusable(false);
         monsterSelect3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monsterSelect3ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("jLabel4");
+        battleLog.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(monsterLevel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(monsterHP1)
-                                    .addGap(14, 14, 14)))
-                            .addComponent(monsterLabel1)
-                            .addComponent(monsterSelect1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(monsterHP2)
-                                    .addComponent(monsterLevel2)
-                                    .addComponent(monsterLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(monsterSelect2)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(monsterLevel3)
-                            .addComponent(monsterLabel3)
-                            .addComponent(monsterHP3)
-                            .addComponent(monsterSelect3)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(monsterLevel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(monsterHP1)
+                                            .addGap(14, 14, 14)))
+                                    .addComponent(monsterLabel1)
+                                    .addComponent(monsterSelect1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(monsterHP2)
+                                            .addComponent(monsterLevel2)
+                                            .addComponent(monsterLabel2))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(monsterSelect2)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(monsterLevel3)
+                                    .addComponent(monsterLabel3)
+                                    .addComponent(monsterHP3)
+                                    .addComponent(monsterSelect3)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(charName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(battleLogHeaderLabel)
+                                .addGap(56, 56, 56)))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(actionHeal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(actionAttack, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(actionDef, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(charName)
-                                    .addComponent(charTwiceStones)
-                                    .addComponent(charHP))
-                                .addGap(101, 101, 101)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(34, 34, 34))
+                            .addComponent(charTwiceStones, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(charHP, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(battleLog)
+                        .addGap(112, 112, 112))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(banner)
                 .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monsterLabel1)
@@ -302,22 +309,22 @@ public class PanelTower extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(monsterSelect1)
                         .addComponent(monsterSelect2)))
-                .addGap(106, 106, 106)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(charName)
-                    .addComponent(jLabel1))
+                    .addComponent(battleLogHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(charHP)
-                    .addComponent(jLabel4))
+                    .addComponent(battleLog))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(charTwiceStones)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(actionAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(actionDef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(actionHeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(actionDef, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(actionAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(actionHeal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -464,13 +471,13 @@ public class PanelTower extends javax.swing.JPanel {
     private javax.swing.JButton actionAttack;
     private javax.swing.JButton actionDef;
     private javax.swing.JButton actionHeal;
+    private javax.swing.JLabel banner;
+    private javax.swing.JLabel battleLog;
+    private javax.swing.JLabel battleLogHeaderLabel;
     private javax.swing.JLabel charHP;
     private javax.swing.JLabel charName;
     private javax.swing.JLabel charTwiceStones;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel monsterHP1;
     private javax.swing.JLabel monsterHP2;
     private javax.swing.JLabel monsterHP3;

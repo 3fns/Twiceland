@@ -20,7 +20,8 @@ public class PanelTwiceStones extends javax.swing.JPanel {
      */
     public PanelTwiceStones(Model currModel) {
         model = currModel;
-        initComponents();
+        
+        initComponents();        
     }
 
     /**
@@ -47,22 +48,22 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         charStr = new javax.swing.JLabel();
         charVit = new javax.swing.JLabel();
         charInt = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        banner = new javax.swing.JLabel();
+        twiceStonesImg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 200, 155));
 
         playerName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         playerName.setForeground(new java.awt.Color(255, 255, 255));
-        playerName.setText("Name");
+        playerName.setText("Character Name: " + model.player.getCharName());
 
         playerLevel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         playerLevel.setForeground(new java.awt.Color(255, 255, 255));
-        playerLevel.setText("Level");
+        playerLevel.setText("Level: " + model.player.getLevel());
 
         playerTwiceStones.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         playerTwiceStones.setForeground(new java.awt.Color(255, 255, 255));
-        playerTwiceStones.setText("Twice Stones");
+        playerTwiceStones.setText("Twice Stones: " +  + model.player.getExp());
 
         playerStrength.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         playerStrength.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,6 +90,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         returnTown.setForeground(new java.awt.Color(255, 255, 255));
         returnTown.setText("Return to Town");
         returnTown.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        returnTown.setFocusable(false);
         returnTown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnTownActionPerformed(evt);
@@ -100,6 +102,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         strButton.setForeground(new java.awt.Color(255, 255, 255));
         strButton.setText("+");
         strButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        strButton.setFocusable(false);
         strButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 strButtonActionPerformed(evt);
@@ -111,6 +114,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         intButton.setForeground(new java.awt.Color(255, 255, 255));
         intButton.setText("+");
         intButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        intButton.setFocusable(false);
         intButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 intButtonActionPerformed(evt);
@@ -122,6 +126,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         vitButton.setForeground(new java.awt.Color(255, 255, 255));
         vitButton.setText("+");
         vitButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        vitButton.setFocusable(false);
         vitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vitButtonActionPerformed(evt);
@@ -140,71 +145,74 @@ public class PanelTwiceStones extends javax.swing.JPanel {
         charInt.setForeground(new java.awt.Color(255, 255, 255));
         charInt.setText(model.playerStats.get("Intelligence").toString());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
+        banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/twiceStones.png"))); // NOI18N
-        jLabel4.setMaximumSize(new java.awt.Dimension(410, 176));
-        jLabel4.setMinimumSize(new java.awt.Dimension(410, 176));
+        twiceStonesImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/twiceStones.png"))); // NOI18N
+        twiceStonesImg.setMaximumSize(new java.awt.Dimension(410, 176));
+        twiceStonesImg.setMinimumSize(new java.awt.Dimension(410, 176));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(banner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(twiceStonesImg, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(returnTown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(playerTwiceStones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(playerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(19, 19, 19))
+                            .addComponent(playerLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(195, 195, 195))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(returnTown, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(playerStrength, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(playerVit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(playerInt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(43, 43, 43)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(charStr)
+                                            .addComponent(charVit)
+                                            .addComponent(charInt))
+                                        .addGap(65, 65, 65)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(intButton)
+                                            .addComponent(vitButton)
+                                            .addComponent(strButton)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(46, 46, 46)
+                                        .addComponent(playerInt1)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(playerLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(playerName, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(93, 93, 93)
-                        .addComponent(playerTwiceStones, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(playerStrength, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(playerVit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(playerInt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(charStr)
-                            .addComponent(charVit)
-                            .addComponent(charInt))
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(intButton)
-                            .addComponent(vitButton)
-                            .addComponent(strButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(playerInt1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(playerName)
-                    .addComponent(playerTwiceStones))
-                .addGap(18, 18, 18)
-                .addComponent(playerLevel)
+                .addComponent(banner)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(playerName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addComponent(playerTwiceStones)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(playerLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(twiceStonesImg, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(playerInt1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
@@ -225,7 +233,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(returnTown, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,27 +251,35 @@ public class PanelTwiceStones extends javax.swing.JPanel {
     private void strButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strButtonActionPerformed
         // TODO add your handling code here:                                
         charStr.setText(model.increaseAttribute("Strength"));
+        
+        playerTwiceStones.setText("Twice Stones: " + model.player.getExp());
+        playerLevel.setText("Level: " + model.player.getLevel());
     }//GEN-LAST:event_strButtonActionPerformed
 
     private void vitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vitButtonActionPerformed
         // TODO add your handling code here:
         charVit.setText(model.increaseAttribute("Vitality"));
+        
+        playerTwiceStones.setText("Twice Stones: " + model.player.getExp());
+        playerLevel.setText("Level: " + model.player.getLevel());
     }//GEN-LAST:event_vitButtonActionPerformed
 
     private void intButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intButtonActionPerformed
         // TODO add your handling code here:
         charInt.setText(model.increaseAttribute("Intelligence"));
+        
+        playerTwiceStones.setText("Twice Stones: " + model.player.getExp());
+        playerLevel.setText("Level: " + model.player.getLevel());
     }//GEN-LAST:event_intButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel banner;
     private javax.swing.JLabel charInt;
     private javax.swing.JLabel charStr;
     private javax.swing.JLabel charVit;
     private javax.swing.JButton intButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel playerInt;
     private javax.swing.JLabel playerInt1;
     private javax.swing.JLabel playerLevel;
@@ -273,6 +289,7 @@ public class PanelTwiceStones extends javax.swing.JPanel {
     private javax.swing.JLabel playerVit;
     private javax.swing.JButton returnTown;
     private javax.swing.JButton strButton;
+    private javax.swing.JLabel twiceStonesImg;
     private javax.swing.JButton vitButton;
     // End of variables declaration//GEN-END:variables
 }
