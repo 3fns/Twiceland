@@ -36,6 +36,10 @@ public class PanelNewGame extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(252, 200, 155));
 
+        enterNameField.setBackground(new java.awt.Color(255, 95, 162));
+        enterNameField.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterNameField.setForeground(new java.awt.Color(255, 255, 255));
+        enterNameField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         enterNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterNameFieldActionPerformed(evt);

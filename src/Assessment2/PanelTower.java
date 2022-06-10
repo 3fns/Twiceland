@@ -22,8 +22,8 @@ public class PanelTower extends javax.swing.JPanel {
      */
     public PanelTower(Model currModel) {
         model = currModel;
-        monsterList = model.createMonsters();    
-        
+        monsterList = model.createMonsters();
+
         initComponents();
 
         monsterLabel1.setVisible(false);
@@ -235,10 +235,16 @@ public class PanelTower extends javax.swing.JPanel {
         jLabel1.setText("Floor " + model.stageNum);
 
         battleLog.setEditable(false);
+        battleLog.setBackground(new java.awt.Color(255, 95, 162));
         battleLog.setColumns(20);
-        battleLog.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        battleLog.setForeground(new java.awt.Color(0, 0, 0));
-        battleLog.setRows(5);
+        battleLog.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        battleLog.setForeground(new java.awt.Color(255, 255, 255));
+        battleLog.setRows(8);
+        battleLog.setTabSize(4);
+        battleLog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        battleLog.setFocusable(false);
+        battleLog.setMaximumSize(new java.awt.Dimension(15, 4));
+        battleLog.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(battleLog);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -247,8 +253,8 @@ public class PanelTower extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,16 +277,9 @@ public class PanelTower extends javax.swing.JPanel {
                                     .addComponent(monsterLabel3)
                                     .addComponent(monsterHP3)
                                     .addComponent(monsterSelect3)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(battleLogHeaderLabel)
-                                .addGap(10, 10, 10)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(charName)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(actionHeal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -289,9 +288,14 @@ public class PanelTower extends javax.swing.JPanel {
                                 .addComponent(actionDef, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(charTwiceStones, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(charHP, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(charName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                        .addComponent(battleLogHeaderLabel)
+                        .addGap(64, 64, 64))))
             .addComponent(banner)
         );
         layout.setVerticalGroup(
@@ -345,10 +349,10 @@ public class PanelTower extends javax.swing.JPanel {
     private void actionDefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionDefActionPerformed
         model.characterDefend();
         battleLog.append(model.player.getCharName() + " defended " + model.def + "\n");
-        
+
         if (!model.monsterAction()) {
             charHP.setText(Integer.toString(model.currentHP));
-            battleLog.append("Monsters attacked! " + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
+            battleLog.append("Monsters attacked!\n" + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
         } else {
             this.setVisible(false);
 
@@ -356,17 +360,16 @@ public class PanelTower extends javax.swing.JPanel {
             this.getParent().revalidate();
             this.getParent().repaint();
         }
-        
+
     }//GEN-LAST:event_actionDefActionPerformed
 
     private void actionHealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionHealActionPerformed
         model.characterHeal();
         battleLog.append(model.player.getCharName() + " healed for " + model.heal + " HP\n");
 
-
         if (!model.monsterAction()) {
             charHP.setText(Integer.toString(model.currentHP));
-            battleLog.append("Monsters attacked! " + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
+            battleLog.append("Monsters attacked!\n" + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
         } else {
             this.setVisible(false);
 
@@ -391,21 +394,21 @@ public class PanelTower extends javax.swing.JPanel {
 
     private void monsterSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect1ActionPerformed
         // TODO add your handling code here:
+        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(0).getCharName() + " for " + model.playerAttack + " damage\n");
+        
         if (model.characterAttack(0)) {
             monsterHP1.setText("Health: 0");
-            battleLog.append(model.monsterList.get(0).getCharName() + " has been slain! " + model.player.getCharName() + " obtained " + model.monsterList.get(0).getExp() + " Twicestones!\n");
+            battleLog.append(model.monsterList.get(0).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(0).getExp() + " Twicestones!\n");
             monsterSelect1.setEnabled(false);
         } else {
             monsterHP1.setText("Health: " + monsterList.get(0).getStats().get("Vitality"));
         }
 
         charTwiceStones.setText("Twice Stones: " + model.player.getExp());
-        
+
         monsterSelect1.setVisible(false);
         monsterSelect2.setVisible(false);
-        monsterSelect3.setVisible(false);
-        
-        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(0).getCharName() + " for " + model.playerAttack + " damage\n");
+        monsterSelect3.setVisible(false);       
 
         if (model.isCleared()) {
             this.setVisible(false);
@@ -416,7 +419,7 @@ public class PanelTower extends javax.swing.JPanel {
         } else {
             if (!model.monsterAction()) {
                 charHP.setText("HP: " + Integer.toString(model.currentHP));
-                battleLog.append("Monsters attacked! " + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
+                battleLog.append("Monsters attacked!\n" + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
             } else {
                 this.setVisible(false);
 
@@ -428,23 +431,22 @@ public class PanelTower extends javax.swing.JPanel {
     }//GEN-LAST:event_monsterSelect1ActionPerformed
 
     private void monsterSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect2ActionPerformed
-        // TODO add your handling code here:        
+        // TODO add your handling code here:                        
+        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(1).getCharName() + " for " + model.playerAttack + " damage\n");
+        
         if (model.characterAttack(1)) {
             monsterHP2.setText("Health: 0");
-            battleLog.append(model.monsterList.get(1).getCharName() + " has been slain! " + model.player.getCharName() + " obtained " + model.monsterList.get(1).getExp() + " Twicestones!\n");
+            battleLog.append(model.monsterList.get(1).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(1).getExp() + " Twicestones!\n");
             monsterSelect2.setEnabled(false);
         } else {
             monsterHP2.setText("Health: " + monsterList.get(1).getStats().get("Vitality"));
         }
 
         charTwiceStones.setText("Twice Stones: " + model.player.getExp());
-        
+
         monsterSelect1.setVisible(false);
         monsterSelect2.setVisible(false);
         monsterSelect3.setVisible(false);
-        
-                battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(1).getCharName() + " for " + model.playerAttack + " damage\n");
-
 
         if (model.isCleared()) {
             this.setVisible(false);
@@ -455,7 +457,7 @@ public class PanelTower extends javax.swing.JPanel {
         } else {
             if (!model.monsterAction()) {
                 charHP.setText("HP: " + Integer.toString(model.currentHP));
-                battleLog.append("Monsters attacked! " + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
+                battleLog.append("Monsters attacked!\n" + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
             } else {
                 this.setVisible(false);
 
@@ -468,22 +470,22 @@ public class PanelTower extends javax.swing.JPanel {
 
     private void monsterSelect3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monsterSelect3ActionPerformed
         // TODO add your handling code here:
+        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(2).getCharName() + " for " + model.playerAttack + " damage\n");
+        
         if (model.characterAttack(2)) {
             monsterHP3.setText("Health: 0");
-            battleLog.append(model.monsterList.get(2).getCharName() + " has been slain! " + model.player.getCharName() + " obtained " + model.monsterList.get(2).getExp() + " Twicestones!\n");
+            battleLog.append(model.monsterList.get(2).getCharName() + " has been slain!\n" + model.player.getCharName() + " obtained " + model.monsterList.get(2).getExp() + " Twicestones!\n");
             monsterSelect3.setEnabled(false);
         } else {
             monsterHP3.setText("Health: " + monsterList.get(2).getStats().get("Vitality"));
-        
+
         }
-        
+
         charTwiceStones.setText("Twice Stones: " + model.player.getExp());
-        
+
         monsterSelect1.setVisible(false);
         monsterSelect2.setVisible(false);
-        monsterSelect3.setVisible(false);
-        
-        battleLog.append(model.player.getCharName() + " attacked " + model.monsterList.get(2).getCharName() + " for " + model.playerAttack + " damage\n");
+        monsterSelect3.setVisible(false);       
 
         if (model.isCleared()) {
             this.setVisible(false);
@@ -493,8 +495,8 @@ public class PanelTower extends javax.swing.JPanel {
             this.getParent().repaint();
         } else {
             if (!model.monsterAction()) {
-                charHP.setText("HP: " + Integer.toString(model.currentHP));            
-                battleLog.append("Monsters attacked! " + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
+                charHP.setText("HP: " + Integer.toString(model.currentHP));
+                battleLog.append("Monsters attacked!\n" + model.player.getCharName() + " has " + model.currentHP + " HP remaining.\n");
             } else {
                 this.setVisible(false);
 

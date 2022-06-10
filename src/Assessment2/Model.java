@@ -250,7 +250,7 @@ public class Model extends Observable {
         if (newHealth > player.getMaxHealth()) {
             currentHP = playerStats.get("Vitality");
         } else {
-            currentHP += newHealth;
+            currentHP = newHealth;
         }
     }
 
