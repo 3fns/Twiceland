@@ -1,0 +1,10 @@
+Status:true
+Name:Groudt
+Highest stage cleared:1
+Level:1
+Total attributes increased:0
+Current Twice Stones:1500
+Character attributes: 
+Intelligence:15
+Vitality:100
+Strength:15

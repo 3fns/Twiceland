@@ -1,0 +1,20 @@
+Fri Jun 10 02:32:54 NZST 2022 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Fri Jun 10 02:32:54 NZST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-48e1-eb2b-00002b72808d 
+on database directory C:\Users\GGPC\Desktop\UNI\COMP603 - PDS\Assessment 2\Assessment2\database\TwicelandDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Users/GGPC/Desktop/UNI/COMP603%20-%20PDS/PDC_Tutorials/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_321-b07
+user.dir=C:\Users\GGPC\Desktop\UNI\COMP603 - PDS\PDC_Tutorials\db-derby-10.14.2.0-bin
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\GGPC\Desktop\UNI\COMP603 - PDS\Assessment 2\Assessment2\database
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Jun 10 02:33:00 NZST 2022: Shutting down Derby engine
+----------------------------------------------------------------
+Fri Jun 10 02:33:00 NZST 2022:
+Shutting down instance a816c00e-0181-48e1-eb2b-00002b72808d on database directory C:\Users\GGPC\Desktop\UNI\COMP603 - PDS\Assessment 2\Assessment2\database\TwicelandDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
