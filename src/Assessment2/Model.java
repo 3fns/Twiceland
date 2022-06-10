@@ -21,7 +21,9 @@ public class Model extends Observable {
     public EntityPlayer player = new EntityPlayer("", 1, 1500);
     public HashMap<String, Integer> playerStats = new HashMap<String, Integer>();
     public List<EntityEnemy> monsterList;
-    private int def = 0;
+    public int playerAttack = 0;
+    public int def = 0;
+    public int heal = 0;
     private int charID = 0;
     public int monsterSize = 0;
     public int stageNum = 1;
@@ -219,10 +221,10 @@ public class Model extends Observable {
         // formula to calc damage
         // dmg = (str * random number from 0 to (str/2)) + (str * 1.25) 
         int randNum = (int) (Math.random() * (player.getStats().get("Strength") / 2));
-        int dmg = (int) Math.floor(randNum + (player.getStats().get("Strength") * 1.25));
+        playerAttack = (int) Math.floor(randNum + (player.getStats().get("Strength") * 1.25));
 
         HashMap<String, Integer> stats = monsterList.get(selectedMonster).getStats();
-        int rem = stats.get("Vitality") - dmg;
+        int rem = stats.get("Vitality") - playerAttack;
 
         // check monster health remaining and returning twicestones if dead
         int twiceStones = checkVitality(selectedMonster, rem, stats);
@@ -240,7 +242,7 @@ public class Model extends Observable {
         // heal = int * random number between 0.9 - 1.5
         int maxIntelligence = (int) Math.floor(player.getStats().get("Intelligence") * 1.5);
         int minIntelligence = (int) Math.floor(maxIntelligence * 0.9);
-        int heal = (int) (Math.random() * (maxIntelligence - minIntelligence)) + minIntelligence;
+        heal = (int) (Math.random() * (maxIntelligence - minIntelligence)) + minIntelligence;
 
         int newHealth = heal + currentHP;
 

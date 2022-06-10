@@ -26,7 +26,10 @@ public class PanelLoadGame extends javax.swing.JPanel {
         
         initComponents();
         
-        jList1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);     
+        continueButton.setVisible(false);
+        
+        charList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
+        
     }
 
     /**
@@ -41,7 +44,7 @@ public class PanelLoadGame extends javax.swing.JPanel {
         chooseCharLabel = new javax.swing.JLabel();
         continueButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>(charNames);
+        charList = new javax.swing.JList<>(charNames);
         banner = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 200, 155));
@@ -62,16 +65,21 @@ public class PanelLoadGame extends javax.swing.JPanel {
             }
         });
 
-        jList1.setBackground(new java.awt.Color(255, 200, 155));
-        jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 95, 162), 3));
-        jList1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jList1.setForeground(new java.awt.Color(255, 255, 255));
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jList1.setFocusable(false);
-        jList1.setSelectionBackground(new java.awt.Color(255, 95, 165));
-        jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jList1);
+        charList.setBackground(new java.awt.Color(255, 200, 155));
+        charList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 95, 162), 3));
+        charList.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        charList.setForeground(new java.awt.Color(255, 255, 255));
+        charList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        charList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        charList.setFocusable(false);
+        charList.setSelectionBackground(new java.awt.Color(255, 95, 165));
+        charList.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        charList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                charListValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(charList);
 
         banner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assessment2/assets/banner.PNG"))); // NOI18N
 
@@ -112,24 +120,39 @@ public class PanelLoadGame extends javax.swing.JPanel {
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         // TODO add your handling code here:
         
-        String charName = (String) jList1.getSelectedValue();
-        int charIndex = (int) jList1.getSelectedIndex();
+        String charName = (String) charList.getSelectedValue();
+        int charIndex = (int) charList.getSelectedIndex();
         int charID = charIDs[charIndex];
-        model.loadedPlayer(charName, charID);
         
-        this.setVisible(false);
-        
-        this.getParent().add(new PanelTown(model));
-        this.getParent().revalidate();
-        this.getParent().repaint();
+        if(charID > 0)
+        {
+            model.loadedPlayer(charName, charID);
+      
+            this.setVisible(false);
+
+            this.getParent().add(new PanelTown(model));
+            this.getParent().revalidate();
+            this.getParent().repaint();
+        }
+            
+         
     }//GEN-LAST:event_continueButtonActionPerformed
+
+    private void charListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_charListValueChanged
+        // TODO add your handling code here:
+         
+        if(!charList.isSelectionEmpty())
+        {
+            continueButton.setVisible(true);
+        }
+    }//GEN-LAST:event_charListValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel banner;
+    private javax.swing.JList<String> charList;
     private javax.swing.JLabel chooseCharLabel;
     private javax.swing.JButton continueButton;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
